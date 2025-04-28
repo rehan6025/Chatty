@@ -8,7 +8,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
-    "dev": "node --watch --trace-warnings backend/server.js"
+    "dev": "node --watch --trace-warnings --env-file=.env backend/server.js"
   },
   "dependencies": {
     "express": "^5.1.0"
