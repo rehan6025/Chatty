@@ -11,7 +11,9 @@
     "dev": "node --watch --trace-warnings --env-file=.env backend/server.js"
   },
   "dependencies": {
+    "colors": "^1.4.0",
     "express": "^5.1.0",
+    "mongodb": "^6.16.0",
     "mongoose": "^8.14.0"
   }
 }
