@@ -14,7 +14,7 @@ const HomePage = () => {
         w={"100%"}
         m="40px 0 15px 0"
       >
-        <Text color={"black"} fontSize={"4xl"} fontFamily="sans-serif">
+        <Text color={"black"} fontSize={"4xl"} fontFamily="Work Sans">
           Chatty
         </Text>
       </Box>

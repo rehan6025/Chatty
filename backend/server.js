@@ -1,24 +1,19 @@
 const express = require("express");
 const { chats } = require("./data/data");
 const connectDb = require("./config/db");
+const userRoutes = require("./routes/userRoutes");
 const colors = require("colors");
 
 const app = express();
 connectDb();
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
   res.send("App is listening");
 });
 
-app.get("/api/chats", (req, res) => {
-  res.send(chats);
-});
-
-app.get("/api/chats/:id", (req, res) => {
-  const chatId = req.params.id;
-  const singleChat = chats.find((c) => c._id === chatId);
-  res.send(singleChat);
-});
+app.use("/api/users", userRoutes);
 
 const PORT = process.env.PORT || 3000;
 
