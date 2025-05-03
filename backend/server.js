@@ -3,6 +3,7 @@ const { chats } = require("./data/data");
 const connectDb = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
 const colors = require("colors");
+const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
 const app = express();
 connectDb();
@@ -14,6 +15,9 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/users", userRoutes);
+
+app.use(notFound);
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 3000;
 
