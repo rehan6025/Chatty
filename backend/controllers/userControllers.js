@@ -67,4 +67,22 @@ const authUser = async (req, res) => {
   }
 };
 
-module.exports = { registerUser, authUser };
+// /api/users/search=rehan
+const allUsers = async (req, res) => {
+  try {
+    const keyword = req.query.search
+      ? {
+          $or: [
+            { name: { $regex: req.query.search, $options: "i" } },
+            { email: { $regex: req.query.search, $options: "i" } },
+          ],
+        }
+      : {};
+    const users = await User.find(keyword).find({ _id: { $ne: req.user._id } });
+  } catch (error) {
+    console.logg("userControllers :: allUsers :: ", error);
+    throw error;
+  }
+};
+
+module.exports = { registerUser, authUser, allUsers };
