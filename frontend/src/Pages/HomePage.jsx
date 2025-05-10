@@ -1,6 +1,6 @@
 import React from "react";
-import { Box, Container, Text, Tabs } from "@chakra-ui/react";
 import Login from "../components/authentication/Login";
+import { Box, Container, Text, Tabs } from "@chakra-ui/react";
 import Signup from "../components/authentication/Signup";
 import { Toaster } from "@/components/ui/toaster";
 
