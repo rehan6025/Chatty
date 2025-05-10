@@ -79,8 +79,9 @@ const allUsers = async (req, res) => {
         }
       : {};
     const users = await User.find(keyword).find({ _id: { $ne: req.user._id } });
+    res.status(200).json(users);
   } catch (error) {
-    console.logg("userControllers :: allUsers :: ", error);
+    console.log("userControllers :: allUsers :: ", error);
     throw error;
   }
 };
