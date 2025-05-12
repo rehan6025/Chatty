@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Login from "../components/authentication/Login";
 import { Box, Container, Text, Tabs } from "@chakra-ui/react";
 import Signup from "../components/authentication/Signup";
 import { Toaster } from "@/components/ui/toaster";
 import { useNavigate } from "react-router-dom";
+import { ChatState } from "../context/ChatContext";
 
 const HomePage = () => {
+  const { user, setUser } = ChatState();
   const navigate = useNavigate();
 
   useEffect(() => {
